@@ -179,7 +179,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@ericdmoore](https://twitter.com/ericdmoore) - eric [at] mooore .cc
+Eric D Moore - [@ericdmoore](https://twitter.com/ericdmoore) - eric [at] mooore .cc
 
 Project Link: [https://github.com/ericdmoore/solar-pi](https://github.com/ericdmoore/solar-pi)
 
