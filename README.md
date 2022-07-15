@@ -141,7 +141,7 @@ Or perhaps you already have a setup and - just want to add the monitoring `Solar
 - [Solar Panels](https://amzn.to/3IFrQN2) - Creates the power from the Sun but your voltage and power can be all over the place
 - [EPEVER MPPT](https://amzn.to/3AVXMLm) - Squashes the Power to levels that make your battery happy - and keep it at a healthy charge  
 - [Batteries (Recommended 2x for a 24 system)](https://amzn.to/3PzTaP8) - holds the power for later, duh
-- [Voltage Regulators](//amzn.to/3yNEipz) - Takes the 24 +- noise voltage down to a VERY stable 12v
+- [Voltage Regulators](//amzn.to/3yNEipz) - Takes the noisy 24volts down to a VERY stable 12v
 - [Raspberry Pi](//amzn.to/3yJGrCt) - Hopefully you already have one - because prices seem silly right now.
 - [Low Voltage Disconnect](//amzn.to/3PqLwpS) - So that you dont run your batteries down too far
 - [DC Circuit Breakers](//amzn.to/3uRjqfY) - to isolate parts of your circuit
@@ -158,16 +158,17 @@ Or perhaps you already have a setup and - just want to add the monitoring `Solar
 
 Basic(Unmonitored) Power Connections:
 
-a `*` in front of the word is a recommend spot for a circuit breaker
-
 ```mermaid
   graph TD;
-      Panels(Solar Panels)-->*MPPT
-      *MPPT-->Batteries
+      Panels(Solar Panels)-->cb1(Circuit Breaker)
+      cb1(Circuit Breaker)-->MPPT
+      MPPT-->Batteries
       Batteries-->LVD(Low Voltage Disconnect)
-      LVD-->*24vFuseBox/Load
+      LVD-->cb2(Circuit Breaker)
+      cb2(Circuit Breaker)-->24vFuseBox/Load
       LVD-->VReg(Voltage Regulator)
-      VReg-->*12vFuseBox/Load
+      VReg-->cb3(Circuit Breaker)
+      cb3(Circuit Breaker)-->12vFuseBox/Load
 ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
