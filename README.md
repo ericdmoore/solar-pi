@@ -85,9 +85,7 @@
 
 ### What It Does:
 
-Senses, Saves, and Shows Solar Metrics via web interface
-
-<div style="column-count:2>
+Senses, Saves, and Shows Solar Time Series Metrics via web interface
 
 - MPPT / Battery 
   - Voltages
@@ -104,7 +102,7 @@ Senses, Saves, and Shows Solar Metrics via web interface
 - Environmental
   - Indoor Temp
   - Outdoor Temp
-  - Lum
+  - Irridescence Score
 - Lifetime Solar Power Generated
 - Total solar PV generation
 - Net home consumption
@@ -112,8 +110,6 @@ Senses, Saves, and Shows Solar Metrics via web interface
 - Total current, voltage, power, and power factor values
 - Individual current transformer readings
 - Harmonics inspection through a built in snapshot/plotting mechanism.
-
-</div
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -149,7 +145,8 @@ Or perhaps you already have a setup and - just want to add the monitoring `Solar
 - [Fusebox For Load](https://amzn.to/3Od4Y8O) - to keep things isolated, safe, and tidy
 - Stuff You want to Power
   - [Lights](//amzn.to/3yNEipz) - Because if you learn one thing from Matt From [DIY Perks](//www.youtube.com/playlist?list=PLOJU8YJjFwGN0hMRewz2_u2IefV-vipsk) - it's that LED strips are incredible, and how is instantly imporved vision not at the top of your list?
-  - [USB Sockets](//amzn.to/3RFZ6rm) - Because sometimes your phone is low
+  - [PhotoCell Switch](//amzn.to/3z6KE4C) - Because you want some stuff to only run at night
+  - [USB Sockets](//amzn.to/3RFZ6rm) - Because sometimes your phone has a low battery
   - [Water Pumps](//amzn.to/3Pt5ZKX) - Because sometimes you want to start a green house with all this stuff
   - [12v Digital Timer](//amzn.to/3aFPw7g) - Because you are not a knuckle dragger who wants to turn the pump on and off EVERYDAY for the rest of your life
   - [Fans](//amzn.to/3RQ7FQP) - Because sometimes it's hot
