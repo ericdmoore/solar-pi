@@ -83,6 +83,37 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://solarpi.link)
 
+### What It Does:
+
+Senses, Saves, and Shows Solar Metrics via web interface
+
+- Lifetime Solar Power Generated
+
+- MPPT / Battery 
+  - Voltages
+  - State of Charge %
+  - Lifetime Charge
+  - Lifetime Discharge
+- Panels (Before MPPT)
+  - Voltages
+  - Amp
+  - Power
+- Load
+  - instant Consumption (Watts)
+  - Daily Consumption
+- Environmental
+  - Indoor Temp
+  - Outdoor Temp
+  - Lum
+
+- Total solar PV generation
+- Net home consumption
+- Net home generation
+- Total current, voltage, power, and power factor values
+- Individual current transformer readings
+- Harmonics inspection through a built in snapshot/plotting mechanism.
+
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Built With
@@ -101,31 +132,42 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+This is an electronics project. As such there are some hardware requirements for this project. You can buy what I bought, or whish I would have boght based on the links below (note: affiliate links).
 
-### Installation
+Or perhaps you already have a setup and - just want to add the monitoring `Solar-Pi`, Great! then you just need to look at the sections starting with installing your sensors.
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/github_username/repo_name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+### Bill Of Materials
+
+- [Solar Panels](https://amzn.to/3IFrQN2) - Creates the power from the Sun but your voltage and power can be all over the place
+- [EPEVER MPPT](https://amzn.to/3AVXMLm) - Squashes the Power to levels that make your battery happy - and keep it at a healthy charge  
+- [Batteries (Recommended 2x for a 24 system)](https://amzn.to/3PzTaP8) - holds the power for later, duh
+- [Voltage Regulators](//amzn.to/3yNEipz) - Takes the 24 +- noise voltage down to a VERY stable 12v
+- [Raspberry Pi](//amzn.to/3yJGrCt) - Hopefully you already have one - because prices seem silly right now.
+- [Low Voltage Disconnect](//amzn.to/3PqLwpS)
+- Stuff You want to Power
+  - [Lights](https://amzn.to/3yNEipz) - Because if you learn one thing from MAtt @ `DIY Perks` - it's that LED strips are incredible, and how is instantly imporved vision not at the top of your list.
+  - [USB Sockets](//amzn.to/3RFZ6rm) - Because sometimes your phone is low
+  - [Water Pumps](//amzn.to/3Pt5ZKX) - Because sometimes you want to start a green house with all this stuff
+  - [12v Digital Timer](//amzn.to/3aFPw7g) - Because you are not a knuckle dragger who wants to turn the pump on and off EVERYDAY for the rest of your life
+  - [Fans](//amzn.to/3RQ7FQP) - Because sometimes it's hot
+  - [Thermal Relays](//amzn.to/3chmFXo) - Because you don't want to turn your fans on when it get's too hot, EVERYDAY for the rest of your life
+
+### Architecture
+
+Basic(Unmonitored) Power Connections:
+
+```mermaid
+  graph TD;
+      Solar Panels-->MPPT
+      MPPT-->Batteries
+      Batteries-->LVD(Low Voltage Disconnect)
+      LVD-->24vLoad
+      LVD-->VReg(Voltage Regulator)
+      VReg-->12vLoad
+```
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <!-- USAGE EXAMPLES -->
 ## Usage
