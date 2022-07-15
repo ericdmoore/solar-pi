@@ -156,6 +156,9 @@ Or perhaps you already have a setup and - just want to add the monitoring `Solar
 
 ### Architecture
 
+
+#### Basic Hardware Guide
+
 Basic(Unmonitored) Power Connections:
 
 ```mermaid
@@ -170,6 +173,20 @@ Basic(Unmonitored) Power Connections:
       VReg-->cb3(Circuit Breaker)
       cb3(Circuit Breaker)-->12vFuseBox/Load
 ```
+
+
+#### Basic Software Components
+
+```mermaid
+  graph TD;
+      Sensor1-->SolPiIntf(Solar Pi Interface)
+      Sensor2-->SolPiIntf(Solar Pi Interface)
+      Sensor3-->SolPiIntf(Solar Pi Interface)
+      SolPiIntf(Solar Pi Interface)-->solApp(Solar Pi Application)
+      solApp(Solar Pi Application)-->solStorageLocal(Solar Pi HDD/SQLite)
+      solStorageLocal(Solar Pi HDD/SQLite)-->solCloudStorage(Solar Pi Cloud Storage)
+```
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
