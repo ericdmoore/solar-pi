@@ -174,7 +174,6 @@ Basic(Unmonitored) Power Connections:
       cb3(Circuit Breaker)-->12vFuseBox/Load
 ```
 
-
 #### Basic Software Components
 
 ```mermaid
@@ -182,9 +181,11 @@ Basic(Unmonitored) Power Connections:
       Sensor1-->SolPiIntf(Solar Pi Interface)
       Sensor2-->SolPiIntf(Solar Pi Interface)
       Sensor3-->SolPiIntf(Solar Pi Interface)
-      SolPiIntf(Solar Pi Interface)-->solApp(Solar Pi Application)
-      solApp(Solar Pi Application)-->solStorageLocal(Solar Pi HDD/SQLite)
+      SolPiIntf(Solar Pi Interface)-->solData(Solar Pi Data Wrangling)
+      solData(Solar Pi Data Wrangling)-->solStorageLocal(Solar Pi HDD/SQLite)
       solStorageLocal(Solar Pi HDD/SQLite)-->solCloudStorage(Solar Pi Cloud Storage)
+      solStorageLocal-->solVizApp(Solar Pi Data Viz Application)
+      solCloudStorage-->solVizApp(Solar Pi Data Viz Application)
 ```
 
 
