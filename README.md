@@ -87,7 +87,7 @@
 
 Senses, Saves, and Shows Solar Metrics via web interface
 
-- Lifetime Solar Power Generated
+<div style="column-count:2>
 
 - MPPT / Battery 
   - Voltages
@@ -105,7 +105,7 @@ Senses, Saves, and Shows Solar Metrics via web interface
   - Indoor Temp
   - Outdoor Temp
   - Lum
-
+- Lifetime Solar Power Generated
 - Total solar PV generation
 - Net home consumption
 - Net home generation
@@ -113,6 +113,7 @@ Senses, Saves, and Shows Solar Metrics via web interface
 - Individual current transformer readings
 - Harmonics inspection through a built in snapshot/plotting mechanism.
 
+</div
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -154,8 +155,7 @@ Or perhaps you already have a setup and - just want to add the monitoring `Solar
   - [Fans](//amzn.to/3RQ7FQP) - Because sometimes it's hot
   - [Thermal Relays](//amzn.to/3chmFXo) - Because you don't want to turn your fans on when it get's too hot, EVERYDAY for the rest of your life
 
-### Architecture
-
+### Architecture Overview
 
 #### Basic Hardware Guide
 
@@ -202,8 +202,8 @@ _For more examples, please refer to the [Documentation](https://solarpi.link)
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Feature 1
-- [ ] Feature 2
+- Data Source for Grafana
+- 
 - [ ] Feature 3
     - [ ] Nested Feature
 
