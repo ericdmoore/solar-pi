@@ -143,9 +143,11 @@ Or perhaps you already have a setup and - just want to add the monitoring `Solar
 - [Batteries (Recommended 2x for a 24 system)](https://amzn.to/3PzTaP8) - holds the power for later, duh
 - [Voltage Regulators](//amzn.to/3yNEipz) - Takes the 24 +- noise voltage down to a VERY stable 12v
 - [Raspberry Pi](//amzn.to/3yJGrCt) - Hopefully you already have one - because prices seem silly right now.
-- [Low Voltage Disconnect](//amzn.to/3PqLwpS)
+- [Low Voltage Disconnect](//amzn.to/3PqLwpS) - So that you dont run your batteries down too far
+- [DC Circuit Breakers](//amzn.to/3uRjqfY) - to isolate parts of your circuit
+- [Fusebox For Load](https://amzn.to/3Od4Y8O) - to keep things isolated, safe, and tidy
 - Stuff You want to Power
-  - [Lights](https://amzn.to/3yNEipz) - Because if you learn one thing from MAtt @ `DIY Perks` - it's that LED strips are incredible, and how is instantly imporved vision not at the top of your list.
+  - [Lights](//amzn.to/3yNEipz) - Because if you learn one thing from Matt From [DIY Perks](//www.youtube.com/playlist?list=PLOJU8YJjFwGN0hMRewz2_u2IefV-vipsk) - it's that LED strips are incredible, and how is instantly imporved vision not at the top of your list?
   - [USB Sockets](//amzn.to/3RFZ6rm) - Because sometimes your phone is low
   - [Water Pumps](//amzn.to/3Pt5ZKX) - Because sometimes you want to start a green house with all this stuff
   - [12v Digital Timer](//amzn.to/3aFPw7g) - Because you are not a knuckle dragger who wants to turn the pump on and off EVERYDAY for the rest of your life
@@ -156,16 +158,17 @@ Or perhaps you already have a setup and - just want to add the monitoring `Solar
 
 Basic(Unmonitored) Power Connections:
 
+a `*` in front of the word is a recommend spot for a circuit breaker
+
 ```mermaid
   graph TD;
-      Solar Panels-->MPPT
+      Panels(Solar Panels)-->*MPPT
       MPPT-->Batteries
       Batteries-->LVD(Low Voltage Disconnect)
-      LVD-->24vLoad
+      LVD-->*24vFuseBox/Load
       LVD-->VReg(Voltage Regulator)
-      VReg-->12vLoad
+      VReg-->*12vFuseBox/Load
 ```
-
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -188,8 +191,6 @@ _For more examples, please refer to the [Documentation](https://solarpi.link)
 See the [open issues](https://github.com/ericdmoore/solar-pi/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <!-- CONTRIBUTING -->
 ## Contributing
