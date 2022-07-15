@@ -157,8 +157,8 @@ Or perhaps you already have a setup and - just want to add the monitoring `Solar
 Basic(Unmonitored) Power Connections:
 
 ```mermaid
-  graph TD;
-      Solar Panels-->MPPT
+  graph TD
+      Panels(Solar Panels)-->MPPT
       MPPT-->Batteries
       Batteries-->LVD(Low Voltage Disconnect)
       LVD-->24vLoad
