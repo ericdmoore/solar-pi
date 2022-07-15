@@ -163,7 +163,7 @@ a `*` in front of the word is a recommend spot for a circuit breaker
 ```mermaid
   graph TD;
       Panels(Solar Panels)-->*MPPT
-      MPPT-->Batteries
+      *MPPT-->Batteries
       Batteries-->LVD(Low Voltage Disconnect)
       LVD-->*24vFuseBox/Load
       LVD-->VReg(Voltage Regulator)
