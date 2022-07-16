@@ -85,7 +85,7 @@
 
 ### What It Does:
 
-Senses, Saves, and Shows Solar Time Series Metrics via web interface
+Senses, Saves, & Shows Solar Power Time-series Metrics via a web interface
 
 - MPPT / Battery 
   - Voltages
