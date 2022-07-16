@@ -37,7 +37,7 @@
 <h3 align="center">Solar Pi</h3>
 
   <p align="center">
-    Monitor Your Solar Power with a Raspberry Pi
+    Monitor Your Solar Power Equipment with a Raspberry Pi and other sensors. 
     <br />
     <a href="https://github.com/ericdmoore/solar-pi"><strong>Explore the docs »</strong></a>
     <br />
