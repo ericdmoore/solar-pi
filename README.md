@@ -267,7 +267,7 @@ Project Link: [https://github.com/ericdmoore/solar-pi](https://github.com/ericdm
 [license-shield]: https://img.shields.io/github/license/ericdmoore/solar-pi.svg?style=for-the-badge
 [license-url]: https://github.com/ericdmoore/solar-pi/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/eric.moore
+[linkedin-url]: https://linkedin.com/in/ericmoore
 
 [product-screenshot]: https://i.redd.it/09q1rdtno2241.png 
 <!-- The product-screen shot is still a placeholders screenshot -->
