@@ -173,7 +173,9 @@ Basic(Unmonitored) Power Connections:
         Sensor4(Humidity)-->HWIntf
         Sensor5(Light)-->HWIntf
         Sensor6(Motion)-->HWIntf
-        Sensor7(etc)-->HWIntf  
+        Sensor7(UV)-->HWIntf
+        Sensor8(Wind)-->HWIntf
+        Sensor9(etc)-->HWIntf  
         HWIntf(Pi HW Interface)-->solDataWrangle(Solar Pi Data Wrangling)
       end
 
