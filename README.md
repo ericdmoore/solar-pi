@@ -130,30 +130,36 @@ Basic(Unmonitored) Hardware / Power Connections:
         Sensor6(Motion)-->HWIntf
         Sensor7(UV)-->HWIntf
         Sensor8(Wind)-->HWIntf
-        Sensor9(etc)-->HWIntf  
+        Sensor9(etc)-->HWIntf 
         HWIntf(Pi HW Interface)-->solDataWrangle(Solar Pi Data Wrangling)
       end
 
       subgraph data [Data Layer]
         solDataWrangle==>solLocalStorage[(Solar Pi HDD/SQLite)]
-        solLocalStorage<-.->solCloudStorage
-        solDataWrangle-.->solCloudStorage[(Solar Pi Cloud Storage)]
+        solLocalStorage-. B: Do A or B -.->solCloudStorage
+        solDataWrangle-. A: Do A or B -.->solCloudStorage[(Solar Pi Cloud Storage)]
       end
 
       subgraph api [API Layer]
-        solLocalStorage-- Only Local Network ---ApiIntf1(HTTP/WS/JSON Data API)
+        solLocalStorage-- Only On Local Network   ---ApiIntf1(λ:HTTP/WS/JSON Data API)
         solCloudStorage==>ApiIntf1
-        solLocalStorage-- Only Local Network ---ApiIntf2(MQQT Data API)
+        solLocalStorage-- Only On Local Network ---ApiIntf2(λ:MQQT Data API)
         solCloudStorage==>ApiIntf2
-        solLocalStorage-- Only Local Network ---ApiIntfN(...Other Data APIs)
+        solLocalStorage-- Only On Local Network ---ApiIntfN(...Other Data λ:APIs)
         solCloudStorage==>ApiIntfN
       end
 
       subgraph apps [Application Layer]
         ApiIntf1==>solVizApp(Solar Pi Data Viz Application)
-        ApiIntf1-.->alexaApp(Alexa Integration)
-        ApiIntf2-.->homeAssistant(Home Assistant Integration)
-        ApiIntfN-.->zmq(ZeroMQ Integration, etc)
+        ApiIntf1-.->alexaApp(WIP: Alexa Integration)
+        ApiIntf2-.->homeAssistant(WIP: Home Assistant Integration)
+        ApiIntfN-.->zmq(WIP: ZeroMQ Integration, etc)
+      end
+
+      subgraph notifications [Notification Layer]
+        ApiIntf1-->email(Email Notifications)
+        ApiIntf1-->slack(Slack Notifications)
+        ApiIntf1-->rss(Rss Alert Log)
       end  
 ```
 
