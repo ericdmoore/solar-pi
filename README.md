@@ -1,13 +1,7 @@
 <div id="top"></div>
+<!-- Note: https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
 <!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -62,12 +56,10 @@
   </ol>
 </details>
 
-
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://solarpi.link)
+[![Product Name Screen Shot][product-screenshot]](https://solarpi.link/u/edm)
 
 ### What It Does:
 
@@ -107,47 +99,10 @@ This is an electronics project. As such there are some hardware requirements for
 
 Or perhaps you already have a solar power system and just need monitoring via `Solar-Pi`, Great! then you just need to look at the sections starting with installing your sensors.
 
-### Proposed Bill Of Materials
-- Power Components
-  - [Solar Panels](//amzn.to/3IFrQN2) - Creates the power from the Sun but your voltage and power can be all over the place
-  - [EPEVER MPPT](//amzn.to/3AVXMLm) - This boxes "resizes the power" to useful levels that make your battery happy - and keep it at a healthy charge
-  - [Batteries (Recommended 2x for a 24 system)](//amzn.to/3PzTaP8) - holds the power for later, duh
-  - [Voltage Regulators](//amzn.to/3yNEipz) - Takes a noisy 24volts down to a VERY stable 12v
-  - [Raspberry Pi](//amzn.to/3yJGrCt) - Hopefully you already have one - because prices seem silly right now.
-  - [Low Voltage Disconnect](//amzn.to/3PqLwpS) - So that you dont run your batteries down too far
-  - [DC Circuit Breakers](//amzn.to/3uRjqfY) - to isolate parts of your circuit
-  - [Fusebox For Load](//amzn.to/3Od4Y8O) - to keep things isolated, safe, and tidy
-- Your Stuff that Needs Power (DC)
-  - [Lights](//amzn.to/3yNEipz) - Because if you learn one thing from Matt From [DIY Perks](//www.youtube.com/playlist?list=PLOJU8YJjFwGN0hMRewz2_u2IefV-vipsk) - it's that LED strips are incredible, and how is instantly imporved vision not at the top of your list?
-  - [PhotoCell Switch](//amzn.to/3z6KE4C) - Because some stuff only runs at night, & you have better stuff to do than to flip them on/off EVERYDAY
-  - [USB Sockets](//amzn.to/3RFZ6rm) - Because sometimes your phone has a low battery
-  - [Water Pumps](//amzn.to/3Pt5ZKX) - Because sometimes you want to start a green house with all this stuff
-  - [12v Digital Timer](//amzn.to/3aFPw7g) - Because you are not a knuckle dragger who wants to turn the pump on and off EVERYDAY for the rest of your life
-  - [Space Fans](//amzn.to/3RQ7FQP) - Because sometimes you're hot
-  - [Vent Fans](//amzn.to/3OkwFwi) - Because batteries prefer roughly the same temps as people
-  - [Thermal Relays](//amzn.to/3chmFXo) - Because you don't want to turn your vent fans on when it get's too hot, EVERYDAY for the rest of your life
-  - [AC Inverter](//amzn.to/3AXgKkA) - Because some stuff just needs AC power. And 2000 Watts w/ 2 outlets is almost always enough.
-- Sensors
-  - [Current Sensor](//www.sparkfun.com/products/164080)
-  - [Voltage Sensor](//www.sparkfun.com/products/16408)
-  - [Humidity Sensor](//www.adafruit.com/product/3721)
-  - [Temperature Sensors](//www.adafruit.com/product/1782)
-  - [Light Sensors](//www.adafruit.com/product/1980)
-  - [UV Light Sensor](//www.adafruit.com/product/4831)
-  - [Motion Sensor](//www.adafruit.com/product/189)
-- Tools & Misc
-  - [High Gauge Wire](//amzn.to/3yRpaYc)
-  - [Wire Lug Terminals w/ Heat Shrink](//amzn.to/3yRYAOu)
-  - [Wire Lug Terminal Crimpers + Cutters](//amzn.to/3RG40Vn)
-  - [MC4 Crimpers](//amzn.to/3AZva3U)
-  - [MC4 Connectors](//amzn.to/3yRYoyD) 
-  - [Automatic Wire Strippers](//amzn.to/3oeLKoO)
 
 ### Architecture Overview
 
-#### Basic Hardware Guide
-
-Basic(Unmonitored) Power Connections:
+Basic(Unmonitored) Hardware / Power Connections:
 
 ```mermaid
   graph TD;
@@ -181,16 +136,16 @@ Basic(Unmonitored) Power Connections:
 
       subgraph data [Data Layer]
         solDataWrangle==>solLocalStorage[(Solar Pi HDD/SQLite)]
-        solLocalStorage-.->solCloudStorage
+        solLocalStorage<-.->solCloudStorage
         solDataWrangle-.->solCloudStorage[(Solar Pi Cloud Storage)]
       end
 
       subgraph api [API Layer]
-        solLocalStorage--oApiIntf1(HTTP/WS/JSON Data API)
+        solLocalStorage-- Only Local Network ---ApiIntf1(HTTP/WS/JSON Data API)
         solCloudStorage==>ApiIntf1
-        solLocalStorage--oApiIntf2(MQQT Data API)
+        solLocalStorage-- Only Local Network ---ApiIntf2(MQQT Data API)
         solCloudStorage==>ApiIntf2
-        solLocalStorage--oApiIntfN(...Other Data APIs)
+        solLocalStorage-- Only Local Network ---ApiIntfN(...Other Data APIs)
         solCloudStorage==>ApiIntfN
       end
 
@@ -204,20 +159,60 @@ Basic(Unmonitored) Power Connections:
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+### Proposed Bill Of Materials
+- Power Components
+  - [Solar Panels](//amzn.to/3IFrQN2) - Creates the power from the Sun but your voltage and power can be all over the place
+  - [MPPT](//amzn.to/3AVXMLm) - This boxes "resizes the power" to useful levels that make your battery happy - and keep it at a healthy charge (EPEVER: Supported)
+  - [Batteries (Recommended 2x for a 24 system)](//amzn.to/3PzTaP8) - holds the power for later, duh
+  - [Voltage Regulators](//amzn.to/3yNEipz) - Takes a noisy 24volts down to a VERY stable 12v
+  - [Raspberry Pi](//amzn.to/3yJGrCt) - Hopefully you already have one - because prices seem silly right now.
+  - [Low Voltage Disconnect](//amzn.to/3PqLwpS) - So that you dont run your batteries down too far
+  - [DC Circuit Breakers](//amzn.to/3uRjqfY) - to isolate parts of your circuit
+  - [Fusebox For Load](//amzn.to/3Od4Y8O) - to keep things isolated, safe, and tidy
+- Your Stuff that Needs Power (DC)
+  - [Lights](//amzn.to/3yNEipz) - Because if you learn one thing from Matt From [DIY Perks](//www.youtube.com/playlist?list=PLOJU8YJjFwGN0hMRewz2_u2IefV-vipsk) - it's that LED strips are incredible, and how is instantly imporved vision not at the top of your list?
+  - [PhotoCell Switch](//amzn.to/3z6KE4C) - Because some stuff only runs at night, & you have better stuff to do than to flip them on/off EVERYDAY
+  - [USB Sockets](//amzn.to/3RFZ6rm) - Because sometimes your phone has a low battery
+  - [Water Pumps](//amzn.to/3Pt5ZKX) - Because sometimes you want to start a green house with all this stuff
+  - [12v Digital Timer](//amzn.to/3aFPw7g) - Because you are not a knuckle dragger who wants to turn the pump on and off EVERYDAY for the rest of your life
+  - [Space Fans](//amzn.to/3RQ7FQP) - Because sometimes you're hot
+  - [Vent Fans](//amzn.to/3OkwFwi) - Because batteries prefer roughly the same temps as people
+  - [Thermal Relays](//amzn.to/3chmFXo) - Because you don't want to turn your vent fans on when it get's too hot, EVERYDAY for the rest of your life
+  - [AC Inverter](//amzn.to/3AXgKkA) - Because some stuff just needs AC power. And 2000 Watts w/ 2 outlets is almost always enough.
+- Sensors
+  - [Current Sensor](//www.sparkfun.com/products/164080)
+  - [Voltage Sensor](//www.sparkfun.com/products/16408)
+  - [Humidity Sensor](//www.adafruit.com/product/3721)
+  - [Temperature Sensors](//www.adafruit.com/product/1782)
+  - [Light Sensors](//www.adafruit.com/product/1980)
+  - [UV Light Sensor](//www.adafruit.com/product/4831)
+  - [Motion Sensor](//www.adafruit.com/product/189)
+- Tools & Misc
+  - [Large Gauge Wire](//amzn.to/3yRpaYc)
+  - [Wire Lug Terminals w/ Heat Shrink](//amzn.to/3yRYAOu)
+  - [Wire Lug Terminal Crimpers + Cutters](//amzn.to/3RG40Vn)
+  - [MC4 Crimpers](//amzn.to/3AZva3U)
+  - [MC4 Connectors](//amzn.to/3yRYoyD) 
+  - [Automatic Wire Strippers](//amzn.to/3oeLKoO)
+
 <!-- USAGE EXAMPLES -->
 ## Usage
 
 1. Buy Hardware.
 2. Connect the parts.
-3. Configure Solar Pi
-4. Let the Sun Take Care of Everything else (except the internet conection)
+3. Configure Solar-Pi.
+4. Sun Handles Everything Else From There (TSTCOEFT) SHEEFT
+  (except the internet conection)
+5. Energy Independence: Checked
+5. Prepper Status: Checked
 
 For more examples, please refer to the [Documentation](//solarpi.link/u/edm)
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- ROADMAP -->
 ## Roadmap
-
+- Configuration Model per Node
+  - What would a MultiNode Setup do/look like?
 - Support via Data Source for Grafana/Prometheus
 - Alerts Log
   - Temperature Battery Protection
@@ -226,6 +221,7 @@ For more examples, please refer to the [Documentation](//solarpi.link/u/edm)
   - Notifications
     - Email Notification
     - Slack Notifications
+    - RSS Feed?
 - Relay Drivers for Terraced Batteries
   - aka: Water Heating with "Excess Energy"
   - "Battery" Interface
