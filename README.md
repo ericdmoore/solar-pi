@@ -25,7 +25,7 @@
     <br />
     <br />
     <a href="https://github.com/ericdmoore/solar-pi">View Demo</a> |
-    <a href="https://github.com/ericdmoore/solar-pi/issues">Report Bug</a> |
+    <a href="https://github.com/ericdmoore/solar-pi/wiki">Review Wiki</a> |
     <a href="https://github.com/ericdmoore/solar-pi/issues">Request Feature</a>
   </p>
 </div>
@@ -37,7 +37,7 @@
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
-        <li><a href="#built-with">Built With</a></li>
+        <li><a href="#what-it-does">What It Does</a></li>
       </ul>
     </li>
     <li>
@@ -47,12 +47,13 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
+    <li><a href="#architecture-overview">Architecture Overview</a></li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
+    <!-- <li><a href="#acknowledgments">Acknowledgments</a></li> -->
   </ol>
 </details>
 
@@ -99,6 +100,13 @@ This is an electronics project. As such there are some hardware requirements for
 
 Or perhaps you already have a solar power system and just need monitoring via `Solar-Pi`, Great! then you just need to look at the sections starting with installing your sensors.
 
+### Installation
+
+Secton Coming Soon!
+
+- Raspberry Pi Install
+- Cloud Install
+- Alexa Install
 
 ### Architecture Overview
 
