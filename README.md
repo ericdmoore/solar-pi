@@ -121,9 +121,9 @@ Or perhaps you already have a setup and - just want to add the monitoring `Solar
 ### Proposed Bill Of Materials
 - Power Components
   - [Solar Panels](https://amzn.to/3IFrQN2) - Creates the power from the Sun but your voltage and power can be all over the place
-  - [EPEVER MPPT](https://amzn.to/3AVXMLm) - Squashes the Power to levels that make your battery happy - and keep it at a healthy charge  
+  - [EPEVER MPPT](https://amzn.to/3AVXMLm) - This boxes "resizes the power" to useful levels that make your battery happy - and keep it at a healthy charge
   - [Batteries (Recommended 2x for a 24 system)](https://amzn.to/3PzTaP8) - holds the power for later, duh
-  - [Voltage Regulators](//amzn.to/3yNEipz) - Takes the noisy 24volts down to a VERY stable 12v
+  - [Voltage Regulators](//amzn.to/3yNEipz) - Takes a noisy 24volts down to a VERY stable 12v
   - [Raspberry Pi](//amzn.to/3yJGrCt) - Hopefully you already have one - because prices seem silly right now.
   - [Low Voltage Disconnect](//amzn.to/3PqLwpS) - So that you dont run your batteries down too far
   - [DC Circuit Breakers](//amzn.to/3uRjqfY) - to isolate parts of your circuit
@@ -168,21 +168,23 @@ Basic(Unmonitored) Power Connections:
 
 ```mermaid
   graph TD;
-      Sensor1-->HWIntf(Solar Pi Interface)
-      Sensor2-->HWIntf(Solar Pi Interface)
-      Sensor3-->HWIntf(Solar Pi Interface)
+      Sensor1(Temperature)-->HWIntf(Solar Pi Interface)
+      Sensor2(Voltage)-->HWIntf(Solar Pi Interface)
+      Sensor3(Amps)-->HWIntf(Solar Pi Interface)
+      Sensor4(Humidity)-->HWIntf(Solar Pi Interface)
+      Sensor5(Light)-->HWIntf(Solar Pi Interface)
+      Sensor6(Motion)-->HWIntf(Solar Pi Interface)
       HWIntf(Solar Pi Interface)-->solData(Solar Pi Data Wrangling)
       solData(Solar Pi Data Wrangling)-->solStorageLocal(Solar Pi HDD/SQLite)
       solStorageLocal(Solar Pi HDD/SQLite)-->solCloudStorage(Solar Pi Cloud Storage)
-      solStorageLocal-->ApiIntf1(HTTP/JSON Data API)
-      solCloudStorage-->ApiIntf1(HTTP/JSON Data API)
+      solStorageLocal-->ApiIntf1(HTTP/WS/JSON Data API)
+      solCloudStorage-->ApiIntf1(HTTP/WS/JSON Data API)
       solStorageLocal-->ApiIntf2(MQQT Data API)
       solCloudStorage-->ApiIntf2(MQQT Data API)
       solStorageLocal-->ApiIntfN(Other Data API)
       solCloudStorage-->ApiIntfN(Other Data API)
       ApiIntf1-->solVizApp(Solar Pi Data Viz Application)
 ```
-
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -197,20 +199,27 @@ _For more examples, please refer to the [Documentation](https://solarpi.link)
 <!-- ROADMAP -->
 ## Roadmap
 
-- Data Source for Grafana
-- Prometheus Support?
+- Support via Data Source for Grafana/Prometheus
 - Explore Renogy Charge Controllers
-- Relay Drivers for Terraced Batteries 
-  - aka: Water Heating
-  - Battery Interface 
-    - Progress signal
-    - Fill Circuit
 - Amazon Alexa Integration
-- Alternative Internet Connection Interfaces
-  - ZMQ
-  - MQTT
+- Relay Drivers for Terraced Batteries
+  - aka: Water Heating with "Excess Energy"
+  - "Battery" Interface
+    - Status/Progress Signal
+    - Fill Circuit
+- Alternative Network Interfaces
   - LoRa
-  - Streaming JSONND
+  - 3G / 5G Cellular
+- Alternative Data API Flavors
+  - Local Streaming
+    - HTTP/JSONND
+    - HTTP/Websocket
+    - ZMQ
+    - MQTT
+  - Query
+    - GraphQL
+    - RESTful (HTTP/JSON.GZ)
+- Explore NodeRed Options for 
 
 See the [open issues](https://github.com/ericdmoore/solar-pi/issues) for a full list of proposed features (and known issues).
 
@@ -241,7 +250,11 @@ Don't forget to give the project a star! Thanks again!
 - [Solar PV Monitoring](https://github.com/lewei50/Solar-PV-Monitoring)
 - [Solarshed](https://github.com/corbinbs/solarshed)
 - [Olen/solar-monitor](https://github.com/Olen/solar-monitor)
-
+- [EPEVER](https://github.com/glitterkitty/EpEverSolarMonitor)
+- [Solar Mon](https://github.com/Elwell/solarmon)
+- [Solar Energy Grafana](https://github.com/glfp/SolarEnergyMonitorInfluxGrafanaDocker)
+- [EPEVER Modbus](https://github.com/rosswarren/epevermodbus)
+- [Solar Log](https://github.com/lewismoten/solar-log)
 
 <!-- LICENSE -->
 ## License
