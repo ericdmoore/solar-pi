@@ -37,7 +37,7 @@
 <h3 align="center">Solar Pi</h3>
 
   <p align="center">
-    Monitor Your Solar Power with a Raspberry Pi
+    Monitor Your Solar Power Equipment with a Raspberry Pi and other sensors. 
     <br />
     <a href="https://github.com/ericdmoore/solar-pi"><strong>Explore the docs »</strong></a>
     <br />
@@ -85,7 +85,7 @@
 
 ### What It Does:
 
-Senses, Saves, and Shows Solar Time Series Metrics via web interface
+Senses, Saves, & Shows Solar Power Time-series Metrics via a web interface
 
 - MPPT / Battery 
   - Voltages
@@ -275,7 +275,7 @@ Project Link: [https://github.com/ericdmoore/solar-pi](https://github.com/ericdm
 [license-shield]: https://img.shields.io/github/license/ericdmoore/solar-pi.svg?style=for-the-badge
 [license-url]: https://github.com/ericdmoore/solar-pi/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/eric.moore
+[linkedin-url]: https://linkedin.com/in/ericmoore
 
 [product-screenshot]: https://i.redd.it/09q1rdtno2241.png 
 <!-- The product-screen shot is still a placeholders screenshot -->
