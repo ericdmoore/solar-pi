@@ -133,24 +133,32 @@ This is an electronics project. As such there are some hardware requirements for
 
 Or perhaps you already have a setup and - just want to add the monitoring `Solar-Pi`, Great! then you just need to look at the sections starting with installing your sensors.
 
-### Bill Of Materials
-
-- [Solar Panels](https://amzn.to/3IFrQN2) - Creates the power from the Sun but your voltage and power can be all over the place
-- [EPEVER MPPT](https://amzn.to/3AVXMLm) - Squashes the Power to levels that make your battery happy - and keep it at a healthy charge  
-- [Batteries (Recommended 2x for a 24 system)](https://amzn.to/3PzTaP8) - holds the power for later, duh
-- [Voltage Regulators](//amzn.to/3yNEipz) - Takes the noisy 24volts down to a VERY stable 12v
-- [Raspberry Pi](//amzn.to/3yJGrCt) - Hopefully you already have one - because prices seem silly right now.
-- [Low Voltage Disconnect](//amzn.to/3PqLwpS) - So that you dont run your batteries down too far
-- [DC Circuit Breakers](//amzn.to/3uRjqfY) - to isolate parts of your circuit
-- [Fusebox For Load](https://amzn.to/3Od4Y8O) - to keep things isolated, safe, and tidy
+### Proposed Bill Of Materials
+- Power Components
+  - [Solar Panels](https://amzn.to/3IFrQN2) - Creates the power from the Sun but your voltage and power can be all over the place
+  - [EPEVER MPPT](https://amzn.to/3AVXMLm) - Squashes the Power to levels that make your battery happy - and keep it at a healthy charge  
+  - [Batteries (Recommended 2x for a 24 system)](https://amzn.to/3PzTaP8) - holds the power for later, duh
+  - [Voltage Regulators](//amzn.to/3yNEipz) - Takes the noisy 24volts down to a VERY stable 12v
+  - [Raspberry Pi](//amzn.to/3yJGrCt) - Hopefully you already have one - because prices seem silly right now.
+  - [Low Voltage Disconnect](//amzn.to/3PqLwpS) - So that you dont run your batteries down too far
+  - [DC Circuit Breakers](//amzn.to/3uRjqfY) - to isolate parts of your circuit
+  - [Fusebox For Load](https://amzn.to/3Od4Y8O) - to keep things isolated, safe, and tidy
 - Stuff You want to Power
   - [Lights](//amzn.to/3yNEipz) - Because if you learn one thing from Matt From [DIY Perks](//www.youtube.com/playlist?list=PLOJU8YJjFwGN0hMRewz2_u2IefV-vipsk) - it's that LED strips are incredible, and how is instantly imporved vision not at the top of your list?
-  - [PhotoCell Switch](//amzn.to/3z6KE4C) - Because you want some stuff to only run at night
+  - [PhotoCell Switch](//amzn.to/3z6KE4C) - Because some stuff only runs at night, & you have better stuff to do than to flip them on/off EVERYDAY
   - [USB Sockets](//amzn.to/3RFZ6rm) - Because sometimes your phone has a low battery
   - [Water Pumps](//amzn.to/3Pt5ZKX) - Because sometimes you want to start a green house with all this stuff
   - [12v Digital Timer](//amzn.to/3aFPw7g) - Because you are not a knuckle dragger who wants to turn the pump on and off EVERYDAY for the rest of your life
   - [Fans](//amzn.to/3RQ7FQP) - Because sometimes it's hot
   - [Thermal Relays](//amzn.to/3chmFXo) - Because you don't want to turn your fans on when it get's too hot, EVERYDAY for the rest of your life
+- Sensors
+  - [Current Sensor](//www.sparkfun.com/products/164080)
+  - [Voltage Sensor](//www.sparkfun.com/products/16408)
+  - [Humidity Sensor](//www.adafruit.com/product/3721)
+  - [Temperature Sensors](//www.adafruit.com/product/1782)
+  - [Light Sensors](//www.adafruit.com/product/1980)
+  - [UV Light Sensor](//www.adafruit.com/product/4831)
+  - [Motion Sensor](//www.adafruit.com/product/189)
 
 ### Architecture Overview
 
