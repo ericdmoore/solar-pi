@@ -174,10 +174,10 @@ Basic(Unmonitored) Power Connections:
       Sensor4(Humidity)-->HWIntf
       Sensor5(Light)-->HWIntf
       Sensor6(Motion)-->HWIntf
-      HWIntf(Pi HW Interface)-->solData(Solar Pi Data Wrangling)
-      solData-->solStorageLocal(Solar Pi HDD/SQLite)
-      solData==>solCloudStorage(Solar Pi Cloud Storage)
-      solStorageLocal(Solar Pi HDD/SQLite)-->solCloudStorage
+      HWIntf(Pi HW Interface)-->solDataWrangle(Solar Pi Data Wrangling)
+      solDataWrangle==>solStorageLocal(Solar Pi HDD/SQLite)
+      solDataWrangle-.->solCloudStorage(Solar Pi Cloud Storage)
+      solStorageLocal-.->solCloudStorage
       solStorageLocal-->ApiIntf1(HTTP/WS/JSON Data API)
       solCloudStorage-->ApiIntf1
       solStorageLocal-->ApiIntf2(MQQT Data API)
