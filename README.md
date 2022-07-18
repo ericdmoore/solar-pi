@@ -168,13 +168,13 @@ Basic(Unmonitored) Power Connections:
 
 ```mermaid
   graph TD;
-      Sensor1(Temperature)-->HWIntf(Pi HW  Interface)
-      Sensor2(Voltage)-->HWIntf(Pi HW Interface)
-      Sensor3(Amps)-->HWIntf(Pi HW Interface)
-      Sensor4(Humidity)-->HWIntf(Pi HW Interface)
-      Sensor5(Light)-->HWIntf(Pi HW Interface)
-      Sensor6(Motion)-->HWIntf(Pi HW Interface)
-      HWIntf(Solar Pi Interface)-->solData(Solar Pi Data Wrangling)
+      Sensor1(Temperature)-->HWIntf
+      Sensor2(Voltage)-->HWIntf
+      Sensor3(Amps)-->HWIntf
+      Sensor4(Humidity)-->HWIntf
+      Sensor5(Light)-->HWIntf
+      Sensor6(Motion)-->HWIntf
+      HWIntf(Pi HW Interface)-->solData(Solar Pi Data Wrangling)
       solData(Solar Pi Data Wrangling)-->solStorageLocal(Solar Pi HDD/SQLite)
       solStorageLocal(Solar Pi HDD/SQLite)-->solCloudStorage(Solar Pi Cloud Storage)
       solStorageLocal-->ApiIntf1(HTTP/WS/JSON Data API)
