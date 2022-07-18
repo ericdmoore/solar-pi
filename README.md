@@ -1,15 +1,5 @@
 <div id="top"></div>
 
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
-
-
-
 <!-- PROJECT SHIELDS -->
 <!--
 *** I'm using markdown "reference style" links for readability.
@@ -25,8 +15,6 @@
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-
-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
@@ -37,15 +25,13 @@
 <h3 align="center">Solar Pi</h3>
 
   <p align="center">
-    Monitor Your Solar Power Equipment with a Raspberry Pi and other sensors. 
+    Monitor Your Solar Power Equipment using a Raspberry Pi + other sensors.
     <br />
     <a href="https://github.com/ericdmoore/solar-pi"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/ericdmoore/solar-pi">View Demo</a>
-    ·
-    <a href="https://github.com/ericdmoore/solar-pi/issues">Report Bug</a>
-    ·
+    <a href="https://github.com/ericdmoore/solar-pi">View Demo</a> |
+    <a href="https://github.com/ericdmoore/solar-pi/issues">Report Bug</a> |
     <a href="https://github.com/ericdmoore/solar-pi/issues">Request Feature</a>
   </p>
 </div>
@@ -115,8 +101,7 @@ Senses, Saves, & Shows Solar Power Time-series Metrics via a web interface
 
 ### Built With
 
-* [Next.js](https://nextjs.org/)
-* [React.js](https://reactjs.org/)
+* []
 * [Svelte](https://svelte.dev/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -183,14 +168,19 @@ Basic(Unmonitored) Power Connections:
 
 ```mermaid
   graph TD;
-      Sensor1-->SolPiIntf(Solar Pi Interface)
-      Sensor2-->SolPiIntf(Solar Pi Interface)
-      Sensor3-->SolPiIntf(Solar Pi Interface)
-      SolPiIntf(Solar Pi Interface)-->solData(Solar Pi Data Wrangling)
+      Sensor1-->HWIntf(Solar Pi Interface)
+      Sensor2-->HWIntf(Solar Pi Interface)
+      Sensor3-->HWIntf(Solar Pi Interface)
+      HWIntf(Solar Pi Interface)-->solData(Solar Pi Data Wrangling)
       solData(Solar Pi Data Wrangling)-->solStorageLocal(Solar Pi HDD/SQLite)
       solStorageLocal(Solar Pi HDD/SQLite)-->solCloudStorage(Solar Pi Cloud Storage)
-      solStorageLocal-->solVizApp(Solar Pi Data Viz Application)
-      solCloudStorage-->solVizApp(Solar Pi Data Viz Application)
+      solStorageLocal-->ApiIntf1(HTTP/JSON Data API)
+      solCloudStorage-->ApiIntf1(HTTP/JSON Data API)
+      solStorageLocal-->ApiIntf2(MQQT Data API)
+      solCloudStorage-->ApiIntf2(MQQT Data API)
+      solStorageLocal-->ApiIntfN(Other Data API)
+      solCloudStorage-->ApiIntfN(Other Data API)
+      ApiIntf1-->solVizApp(Solar Pi Data Viz Application)
 ```
 
 
@@ -208,9 +198,19 @@ _For more examples, please refer to the [Documentation](https://solarpi.link)
 ## Roadmap
 
 - Data Source for Grafana
-- 
-- [ ] Feature 3
-    - [ ] Nested Feature
+- Prometheus Support?
+- Explore Renogy Charge Controllers
+- Relay Drivers for Terraced Batteries 
+  - aka: Water Heating
+  - Battery Interface 
+    - Progress signal
+    - Fill Circuit
+- Amazon Alexa Integration
+- Alternative Internet Connection Interfaces
+  - ZMQ
+  - MQTT
+  - LoRa
+  - Streaming JSONND
 
 See the [open issues](https://github.com/ericdmoore/solar-pi/issues) for a full list of proposed features (and known issues).
 
@@ -232,6 +232,15 @@ Don't forget to give the project a star! Thanks again!
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+## Inspirations
+- [RPI Power Meter](//github.com/David00/rpi-power-monitor)
+- [Powerwall Monitor](//github.com/mihailescu2m/powerwall_monitor)
+- [Solarpi](https://github.com/Tafkas/solarpi)
+- [Solar Thing](https://github.com/wildmountainfarms/solarthing)
+- [Solar Observatory](https://github.com/petercable/solar-observatory)
+- [Solar PV Monitoring](https://github.com/lewei50/Solar-PV-Monitoring)
+- [Solarshed](https://github.com/corbinbs/solarshed)
+- [Olen/solar-monitor](https://github.com/Olen/solar-monitor)
 
 
 <!-- LICENSE -->
@@ -241,14 +250,12 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 <!-- CONTACT -->
 ## Contact
 
-Eric D Moore - [@ericdmoore](https://twitter.com/ericdmoore) - eric [at] mooore .cc
+Eric D Moore - [@ericdmoore](https://twitter.com/ericdmoore) - eric [𝓪𝓽] mooore [𝓭𝓸𝓽] cc
 
-Project Link: [https://github.com/ericdmoore/solar-pi](https://github.com/ericdmoore/solar-pi)
+Project Link: [https://github.com/ericdmoore/solar-pi][project-url]
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -264,6 +271,7 @@ Project Link: [https://github.com/ericdmoore/solar-pi](https://github.com/ericdm
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[project-url]:https://github.com/ericdmoore/solar-pi
 [contributors-shield]: https://img.shields.io/github/contributors/ericdmoore/solar-pi.svg?style=for-the-badge
 [contributors-url]: https://github.com/ericdmoore/solar-pi/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/ericdmoore/solar-pi.svg?style=for-the-badge
