@@ -13,7 +13,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/ericdmoore/solar-pi">
-    <img src="images/SolarPi.svg" alt="Solar Pi Project Logo" width="80" height="80" />
+    <img src="images/SolarPi.svg" alt="Solar Pi Project Logo" width="155" height="155" />
   </a>
 
 <h3 align="center">Solar Pi</h3>
@@ -177,6 +177,7 @@ Basic(Unmonitored) Hardware / Power Connections:
 - Power Components
   - [Solar Panels](//amzn.to/3IFrQN2) - Creates the power from the Sun but your voltage and power can be all over the place
   - [MPPT](//amzn.to/3AVXMLm) - This boxes "resizes the power" to useful levels that make your battery happy - and keep it at a healthy charge (EPEVER: Supported)
+  - [MPTT Data Cord](//amzn.to/3PER3JJ) - Send your MPPT data to the SolarPi over USB
   - [Batteries (Recommended 2x for a 24 system)](//amzn.to/3PzTaP8) - holds the power for later, duh
   - [Voltage Regulators](//amzn.to/3yNEipz) - Takes a noisy 24volts down to a VERY stable 12v
   - [Raspberry Pi](//amzn.to/3yJGrCt) - Hopefully you already have one - because prices seem silly right now.
