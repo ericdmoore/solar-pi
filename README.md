@@ -226,16 +226,17 @@ For more examples, please refer to the [Documentation](//solarpi.link/u/edm)
 
 <!-- ROADMAP -->
 ## Roadmap
-- Configuration Model per Node
+- [Configuration](//github.com/ericdmoore/solar-pi/wiki/Configuration) Model per Node
   - What would a MultiNode Setup do/look like?
 - Support via Data Source for Grafana/Prometheus
 - Alerts Log
   - Temperature Battery Protection
     - Low Voltage Charging Protection
     - High Temp Discharging
-  - Notifications
-    - Email Notification
-    - Slack Notifications
+  - [Notifications](//github.com/ericdmoore/solar-pi/wiki/Notifications)
+    - [Email Notification](https://github.com/ericdmoore/solar-pi/wiki/Notifications:Email)
+    - [Slack Notifications](https://github.com/ericdmoore/solar-pi/wiki/Notifications:Slack)
+    - [SMS Notifications](https://github.com/ericdmoore/solar-pi/wiki/Notifications:SMS)
     - RSS Feed?
 - Relay Drivers for Terraced Batteries
   - aka: Water Heating with "Excess Energy"
