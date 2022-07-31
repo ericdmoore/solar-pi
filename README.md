@@ -194,6 +194,10 @@ Basic(Unmonitored) Hardware / Power Connections:
   - [Vent Fans](//amzn.to/3OkwFwi) - Because batteries prefer roughly the same temps as people
   - [Thermal Relays](//amzn.to/3chmFXo) - Because you don't want to turn your vent fans on when it get's too hot, EVERYDAY for the rest of your life
   - [AC Inverter](//amzn.to/3AXgKkA) - Because some stuff just needs AC power. And 2000 Watts w/ 2 outlets is almost always enough.
+  - [DC Garage Door Openers](#)
+  - [DC Ceiling Fans](#)
+  - [POE based Home Security](#)
+  - [Sprinkler Systems](#)
 - Sensors
   - [Current Sensor](//www.sparkfun.com/products/164080)
   - [Voltage Sensor](//www.sparkfun.com/products/16408)
